@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top of the Ninth | Pizza, Wings & Hoagies in New Brighton, PA</title>
-    <meta name="description" content="Top of the Ninth - Best pizza, wings, and hoagies in New Brighton, PA. Order online for fast delivery and pickup. 4.1★ rated on Yelp.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Top of the Ninth | Order Pizza, Wings & Hoagies Online</title>
+    <meta name="description" content="Order pizza, wings, hoagies & salads from Top of the Ninth. Fast delivery in New Brighton, PA. 4.1★ on Yelp.">
     <style>
+        :root {
+            --primary: #dc2626;
+            --primary-dark: #991b1b;
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --border: #2a2a2a;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -20,494 +29,358 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #ffffff;
-            color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
             line-height: 1.6;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
+        a { color: inherit; text-decoration: none; }
+        button { font: inherit; cursor: pointer; border: none; background: none; }
+        img { max-width: 100%; display: block; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* ANNOUNCEMENT */
+        .announcement {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
         }
 
-        button {
-            font: inherit;
-            cursor: pointer;
-            border: none;
-            background: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Navigation */
+        /* STICKY NAV */
         nav {
             position: sticky;
             top: 0;
-            z-index: 50;
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
+            z-index: 100;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 20px;
         }
 
-        nav .container {
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding-top: 12px;
-            padding-bottom: 12px;
-        }
-
-        nav h1 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #000000;
-        }
-
-        nav .nav-right {
-            display: flex;
             align-items: center;
-            gap: 16px;
         }
 
-        nav a, nav button {
-            font-size: 14px;
-            font-weight: 600;
-            color: #000000;
-            transition: color 0.2s;
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
         }
 
-        nav a:hover {
-            color: #6b7280;
-        }
-
-        .btn-order {
+        .nav-cart {
+            background: var(--primary);
             padding: 10px 16px;
-            background: #dc2626;
-            color: #ffffff;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: 700;
-            font-size: 14px;
-            transition: background 0.2s;
-        }
-
-        .btn-order:hover {
-            background: #b91c1c;
-        }
-
-        /* Quick Order Section - Hero */
-        .quick-order {
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-            color: #ffffff;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .quick-order h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .quick-order p {
-            font-size: 16px;
-            margin-bottom: 32px;
-            opacity: 0.95;
-        }
-
-        .order-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .order-card {
-            background: rgba(255, 255, 255, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            padding: 24px;
+            font-size: 12px;
             cursor: pointer;
             transition: all 0.3s;
-            backdrop-filter: blur(10px);
         }
 
-        .order-card:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-4px);
+        .nav-cart:hover {
+            background: var(--primary-dark);
         }
 
-        .order-card-icon {
-            font-size: 40px;
-            margin-bottom: 12px;
-        }
-
-        .order-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .order-card p {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        /* Menu Section */
-        .menu-section {
-            padding: 64px 0;
-        }
-
-        .menu-section h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 48px;
-            text-align: center;
-            color: #000000;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .menu-category {
-            background: #f9fafb;
-            border-radius: 12px;
-            padding: 32px;
-            border: 1px solid #e5e7eb;
-        }
-
-        .menu-category h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            color: #dc2626;
-        }
-
-        .menu-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .menu-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .menu-item-name {
-            font-weight: 600;
-            font-size: 15px;
-            color: #000000;
-            margin-bottom: 4px;
-        }
-
-        .menu-item-desc {
-            font-size: 13px;
-            color: #6b7280;
-            margin-bottom: 8px;
-        }
-
-        .menu-item-price {
-            font-weight: 700;
-            font-size: 16px;
-            color: #dc2626;
-        }
-
-        /* Info Section */
-        .info {
-            padding: 64px 0;
-            background: #f9fafb;
-            border-top: 1px solid #e5e7eb;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-        }
-
-        .info-item h3 {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #000000;
-            margin-bottom: 12px;
-        }
-
-        .info-item p {
-            font-size: 14px;
-            color: #4b5563;
-            line-height: 1.8;
-        }
-
-        /* Reviews */
-        .reviews {
-            padding: 64px 0;
-        }
-
-        .reviews h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 48px;
-            text-align: center;
-            color: #000000;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        .review-card {
-            padding: 24px;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            background: #ffffff;
-        }
-
-        .review-stars {
-            color: #fbbf24;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-
-        .review-text {
-            font-size: 14px;
-            color: #4b5563;
-            margin-bottom: 16px;
-            font-style: italic;
-            line-height: 1.7;
-        }
-
-        .review-author {
-            font-size: 13px;
-            font-weight: 700;
-            color: #000000;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 64px 0;
-            background: #000000;
-            color: #ffffff;
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+            padding: 60px 20px;
             text-align: center;
         }
 
-        .cta h2 {
+        .hero h1 {
             font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 24px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
         }
 
-        .cta p {
+        .hero p {
             font-size: 18px;
-            color: #d1d5db;
+            color: var(--text-secondary);
             margin-bottom: 32px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .cta-buttons {
+        .hero-buttons {
             display: flex;
-            gap: 12px;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .btn-white {
-            padding: 12px 32px;
-            background: #ffffff;
-            color: #000000;
+        .btn {
+            padding: 14px 32px;
             border-radius: 8px;
             font-weight: 700;
-            transition: background 0.2s;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            cursor: pointer;
         }
 
-        .btn-white:hover {
-            background: #f3f4f6;
+        .btn-primary {
+            background: var(--primary);
+            color: var(--text-primary);
         }
 
-        .btn-dark-outline {
-            padding: 12px 32px;
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
             background: transparent;
-            color: #ffffff;
-            border: 1px solid #4b5563;
+            color: var(--text-primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+        }
+
+        /* MENU SECTION */
+        .menu-section {
+            padding: 60px 20px;
+            background: var(--bg-dark);
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .menu-tabs {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: var(--bg-card);
+            color: var(--text-muted);
             border-radius: 8px;
-            font-weight: 700;
-            transition: all 0.2s;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid transparent;
         }
 
-        .btn-dark-outline:hover {
-            border-color: #ffffff;
+        .tab-btn.active {
+            background: var(--primary);
+            color: var(--text-primary);
+            border-color: var(--primary);
         }
 
-        /* Footer */
-        footer {
-            background: #ffffff;
-            border-top: 1px solid #e5e7eb;
-            padding: 48px 0;
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
         }
 
-        .footer-grid {
+        .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
-            margin-bottom: 32px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid #e5e7eb;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .footer-col h4 {
+        /* MENU ITEM CARD */
+        .menu-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+
+        .item-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .item-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .item-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .item-body {
+            padding: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .menu-item.expanded .item-body {
+            max-height: 500px;
+        }
+
+        /* PIZZA CUSTOMIZATION */
+        .size-selector {
+            margin-bottom: 20px;
+        }
+
+        .size-label {
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #000000;
-            margin-bottom: 16px;
-        }
-
-        .footer-col p, .footer-col a {
-            font-size: 14px;
-            color: #4b5563;
-            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
             display: block;
         }
 
-        .footer-col a:hover {
-            color: #000000;
+        .size-options {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
-        .footer-bottom {
-            text-align: center;
+        .size-btn {
+            flex: 1;
+            min-width: 80px;
+            padding: 10px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 6px;
             font-size: 12px;
-            color: #9ca3af;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background-color: #ffffff;
-            margin: 5% auto;
-            padding: 32px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 500px;
-            animation: slideIn 0.3s;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .modal-header h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #000000;
-        }
-
-        .close-btn {
-            font-size: 28px;
-            font-weight: 300;
-            color: #6b7280;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .close-btn:hover {
-            color: #000000;
-        }
-
-        .order-items {
-            margin-bottom: 24px;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .order-item-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .order-item-row:last-child {
-            border-bottom: none;
-        }
-
-        .order-item-info h4 {
             font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .order-item-info p {
-            font-size: 12px;
-            color: #6b7280;
+        .size-btn.selected {
+            background: var(--primary);
+            border-color: var(--primary);
         }
 
-        .order-item-controls {
+        .size-btn:hover {
+            border-color: var(--primary);
+        }
+
+        /* TOPPINGS SELECTOR */
+        .toppings-section {
+            margin-bottom: 20px;
+        }
+
+        .toppings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .topping-item {
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
+        .topping-item input {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .topping-item label {
+            font-size: 13px;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        /* SAUCE SELECTOR */
+        .sauce-selector {
+            margin-bottom: 20px;
+        }
+
+        .sauce-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .sauce-btn {
+            padding: 10px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .sauce-btn.selected {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .sauce-btn:hover {
+            border-color: var(--primary);
+        }
+
+        /* QUANTITY & ADD */
+        .item-footer {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-dark);
+            border-radius: 6px;
+            padding: 6px 8px;
+        }
+
         .qty-btn {
             width: 24px;
             height: 24px;
-            border-radius: 50%;
-            background: #f3f4f6;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
             cursor: pointer;
-            transition: background 0.2s;
+            font-weight: 700;
+            transition: all 0.3s;
         }
 
         .qty-btn:hover {
-            background: #e5e7eb;
+            color: var(--primary);
         }
 
         .qty-display {
@@ -516,489 +389,457 @@
             font-weight: 600;
         }
 
-        .order-price {
+        .add-btn {
+            flex: 1;
+            padding: 10px;
+            background: var(--primary);
+            color: var(--text-primary);
+            border-radius: 6px;
             font-weight: 700;
-            font-size: 14px;
-            color: #dc2626;
-            min-width: 50px;
-            text-align: right;
+            font-size: 12px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .modal-footer {
-            border-top: 1px solid #e5e7eb;
-            padding-top: 24px;
+        .add-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* CART MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+        }
+
+        .modal-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .modal-total {
-            font-size: 18px;
+        .modal-header h2 {
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .close-btn {
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+        }
+
+        .cart-item {
+            background: var(--bg-dark);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .cart-item-name {
             font-weight: 700;
-            color: #000000;
+            margin-bottom: 8px;
         }
 
-        .modal-total span {
-            color: #dc2626;
+        .cart-item-details {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            line-height: 1.5;
         }
 
-        .btn-checkout {
-            padding: 12px 32px;
-            background: #dc2626;
-            color: #ffffff;
+        .cart-item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-item-price {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .remove-btn {
+            padding: 6px 12px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .remove-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .modal-footer {
+            padding: 24px;
+            border-top: 1px solid var(--border);
+            background: var(--bg-dark);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 900;
+            margin-bottom: 16px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: var(--text-primary);
             border-radius: 8px;
             font-weight: 700;
-            transition: background 0.2s;
+            font-size: 14px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .btn-checkout:hover {
-            background: #b91c1c;
+        .checkout-btn:hover {
+            background: var(--primary-dark);
         }
 
+        .checkout-btn:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .order-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 32px; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; }
+            .hero-buttons .btn { width: 100%; }
+            .toppings-grid { grid-template-columns: 1fr; }
+            .size-options { flex-direction: column; }
+            .size-btn { width: 100%; }
+        }
 
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .quick-order h2 {
-                font-size: 24px;
-            }
-
-            nav .container {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .cta h2 {
-                font-size: 32px;
-            }
+        @media (max-width: 480px) {
+            .hero { padding: 40px 16px; }
+            .hero h1 { font-size: 24px; }
+            .menu-section { padding: 40px 16px; }
+            .modal { padding: 12px; }
+            .modal-content { max-width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- ANNOUNCEMENT -->
+    <div class="announcement">
+        🔥 Open Tue-Sat 4PM-10PM | Call (724) 846-9999
+    </div>
+
+    <!-- STICKY NAV -->
     <nav>
-        <div class="container">
-            <h1>🍕 Top of the Ninth</h1>
-            <div class="nav-right">
-                <a href="tel:+17248469999" style="font-weight: 600;">📞 (724) 846-9999</a>
-                <button class="btn-order" onclick="openOrderModal()">Order Now</button>
-            </div>
+        <div class="nav-container">
+            <div class="nav-logo">TOP OF THE NINTH</div>
+            <button class="nav-cart" onclick="openCart()">
+                🛒 Cart (<span id="cartCount">0</span>)
+            </button>
         </div>
     </nav>
 
-    <!-- Quick Order Hero -->
-    <section class="quick-order">
-        <div class="container">
-            <h2>Order in Under 3 Seconds</h2>
-            <p>Best Pizza, Wings & Hoagies in New Brighton</p>
-            <div class="order-grid">
-                <div class="order-card" onclick="quickOrder('pizza')">
-                    <div class="order-card-icon">🍕</div>
-                    <h3>Pizza</h3>
-                    <p>Fresh & Delicious</p>
-                </div>
-                <div class="order-card" onclick="quickOrder('wings')">
-                    <div class="order-card-icon">🍗</div>
-                    <h3>Wings</h3>
-                    <p>Crispy & Hot</p>
-                </div>
-                <div class="order-card" onclick="quickOrder('hoagies')">
-                    <div class="order-card-icon">🥪</div>
-                    <h3>Hoagies</h3>
-                    <p>Mancini's Bread</p>
-                </div>
-                <div class="order-card" onclick="quickOrder('salads')">
-                    <div class="order-card-icon">🥗</div>
-                    <h3>Salads</h3>
-                    <p>Fresh & Tasty</p>
-                </div>
-            </div>
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Order Now</h1>
+        <p>Fresh pizza, crispy wings & hoagies on Mancini's bread</p>
+        <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="document.querySelector('.menu-tabs').scrollIntoView({behavior:'smooth'})">Browse Menu</button>
+            <a href="tel:+17248469999" class="btn btn-secondary">Call (724) 846-9999</a>
         </div>
     </section>
 
-    <!-- Menu Section -->
+    <!-- MENU -->
     <section class="menu-section">
         <div class="container">
-            <h2>Our Menu</h2>
-            <div class="menu-grid">
-                <!-- Pizza -->
-                <div class="menu-category">
-                    <h3>🍕 Pizza</h3>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Small Cheese</div>
-                            <div class="menu-item-desc">Fresh dough, tangy sauce</div>
-                        </div>
-                        <div class="menu-item-price">$8.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Large Cheese</div>
-                            <div class="menu-item-desc">Perfect for sharing</div>
-                        </div>
-                        <div class="menu-item-price">$12.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Small Deluxe</div>
-                            <div class="menu-item-desc">Pepperoni, sausage, veggies</div>
-                        </div>
-                        <div class="menu-item-price">$10.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Large Deluxe</div>
-                            <div class="menu-item-desc">All the toppings</div>
-                        </div>
-                        <div class="menu-item-price">$15.99</div>
-                    </div>
-                </div>
-
-                <!-- Wings -->
-                <div class="menu-category">
-                    <h3>🍗 Wings</h3>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">10 Wings</div>
-                            <div class="menu-item-desc">Cooked to perfection</div>
-                        </div>
-                        <div class="menu-item-price">$7.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">20 Wings</div>
-                            <div class="menu-item-desc">Party favorite</div>
-                        </div>
-                        <div class="menu-item-price">$13.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">50 Wings</div>
-                            <div class="menu-item-desc">Feeds a crowd</div>
-                        </div>
-                        <div class="menu-item-price">$29.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">French Fries</div>
-                            <div class="menu-item-desc">Crispy with soft center</div>
-                        </div>
-                        <div class="menu-item-price">$3.99</div>
-                    </div>
-                </div>
-
-                <!-- Hoagies -->
-                <div class="menu-category">
-                    <h3>🥪 Hoagies</h3>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Italian Hoagie</div>
-                            <div class="menu-item-desc">On Mancini's bread</div>
-                        </div>
-                        <div class="menu-item-price">$7.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Meatball Hoagie</div>
-                            <div class="menu-item-desc">Homemade meatballs</div>
-                        </div>
-                        <div class="menu-item-price">$8.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Chicken Hoagie</div>
-                            <div class="menu-item-desc">Crispy & fresh</div>
-                        </div>
-                        <div class="menu-item-price">$8.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Gyro Salad</div>
-                            <div class="menu-item-desc">Fresh greens & meat</div>
-                        </div>
-                        <div class="menu-item-price">$8.99</div>
-                    </div>
-                </div>
-
-                <!-- Desserts -->
-                <div class="menu-category">
-                    <h3>🍰 Desserts</h3>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Cheesecake</div>
-                            <div class="menu-item-desc">Rich & creamy</div>
-                        </div>
-                        <div class="menu-item-price">$4.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Cinnamon Rolls</div>
-                            <div class="menu-item-desc">Warm & delicious</div>
-                        </div>
-                        <div class="menu-item-price">$3.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Brownie</div>
-                            <div class="menu-item-desc">Fudgy & fresh</div>
-                        </div>
-                        <div class="menu-item-price">$2.99</div>
-                    </div>
-                    <div class="menu-item">
-                        <div>
-                            <div class="menu-item-name">Cookie</div>
-                            <div class="menu-item-desc">Homemade</div>
-                        </div>
-                        <div class="menu-item-price">$1.99</div>
-                    </div>
-                </div>
+            <h2 class="section-title">Full Menu</h2>
+            <div class="menu-tabs">
+                <button class="tab-btn active" onclick="switchCategory('pizza', this)">🍕 Pizza</button>
+                <button class="tab-btn" onclick="switchCategory('wings', this)">🍗 Wings</button>
+                <button class="tab-btn" onclick="switchCategory('hoagies', this)">🥪 Hoagies</button>
+                <button class="tab-btn" onclick="switchCategory('salads', this)">🥗 Salads</button>
+                <button class="tab-btn" onclick="switchCategory('desserts', this)">🍰 Desserts</button>
             </div>
+            <div class="menu-grid" id="menuGrid"></div>
         </div>
     </section>
 
-    <!-- Info Section -->
-    <section class="info">
-        <div class="container">
-            <div class="info-grid">
-                <div class="info-item">
-                    <h3>📍 Location</h3>
-                    <p>4410 Rochester Rd<br>New Brighton, PA 15066</p>
-                </div>
-                <div class="info-item">
-                    <h3>⏰ Hours</h3>
-                    <p>Tue-Sat: 4:00 PM - 10:00 PM<br>Sun-Mon: Closed</p>
-                </div>
-                <div class="info-item">
-                    <h3>📞 Contact</h3>
-                    <p><a href="tel:+17248469999">(724) 846-9999</a><br>Delivery Available</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="reviews">
-        <div class="container">
-            <h2>⭐ What Customers Say</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Love this place. Food is great. Always fast and friendly. We mostly use delivery but every interaction is great!"</p>
-                    <p class="review-author">— Brad N., Indiana, PA</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Everything was perfect. French fries are the best around, crispy with a soft center. Wings cooked to perfection."</p>
-                    <p class="review-author">— Matt B., Rochester, PA</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Pizza is outrageously good. Definitely best in the area. The hoagies are amazing. On Mancini's bread, no less!"</p>
-                    <p class="review-author">— Kurt A., Beaver, PA</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Good food and service and a good neighbor place to eat. It's one of the best hidden treasures of Beaver County."</p>
-                    <p class="review-author">— Ken Y., New Brighton, PA</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Awesome salads! I love their food...it's a nice environment and they have good service!"</p>
-                    <p class="review-author">— Abby W., Rochester, PA</p>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Amazing pizza!!! They have really good desserts as well. We love the cheesecake and the cinnamon rolls!"</p>
-                    <p class="review-author">— Lashawnda S., Rochester, PA</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Order?</h2>
-            <p>Get your favorite food delivered fast or pick it up at our location.</p>
-            <div class="cta-buttons">
-                <button class="btn-white" onclick="openOrderModal()">Order Online</button>
-                <a href="tel:+17248469999" class="btn-dark-outline">Call (724) 846-9999</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Top of the Ninth</h4>
-                    <p>Best pizza, wings, and hoagies in New Brighton, PA. 4.1★ rated on Yelp.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <a href="#menu">Menu</a>
-                    <a href="#reviews">Reviews</a>
-                    <a href="#info">Hours & Location</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <a href="tel:+17248469999">(724) 846-9999</a>
-                    <p>4410 Rochester Rd, New Brighton, PA 15066</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <a href="https://www.yelp.com/biz/top-of-the-ninth-new-brighton" target="_blank">Yelp</a>
-                    <a href="#">Facebook</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Top of the Ninth. All rights reserved. | 4.1★ on Yelp</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Order Modal -->
-    <div id="orderModal" class="modal">
+    <!-- CART MODAL -->
+    <div class="modal" id="cartModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalTitle">Your Order</h2>
-                <span class="close-btn" onclick="closeOrderModal()">&times;</span>
+                <h2>Your Cart</h2>
+                <button class="close-btn" onclick="closeCart()">✕</button>
             </div>
-            <div class="order-items" id="orderItems">
-                <p style="text-align: center; color: #6b7280;">Click items to add to cart</p>
+            <div class="modal-body" id="cartBody">
+                <div class="cart-empty">Your cart is empty</div>
             </div>
-            <div class="modal-footer">
-                <div class="modal-total">Total: <span id="totalPrice">$0.00</span></div>
-                <a href="tel:+17248469999" class="btn-checkout">Call to Order</a>
+            <div class="modal-footer" id="cartFooter" style="display:none;">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <a href="tel:+17248469999" class="checkout-btn">Call to Order</a>
             </div>
         </div>
     </div>
 
     <script>
-        let cart = {};
-        const menuItems = {
+        const menuData = {
             pizza: [
-                { name: 'Small Cheese', price: 8.99 },
-                { name: 'Large Cheese', price: 12.99 },
-                { name: 'Small Deluxe', price: 10.99 },
-                { name: 'Large Deluxe', price: 15.99 }
+                { name: 'Cheese Pizza', desc: 'Fresh dough, homemade sauce, melted cheese', sizes: ['Small', 'Medium', 'Large'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Mushroom', 'Onion', 'Green Pepper', 'Banana Pepper', 'Sweet Pepper', 'Extra Cheese'] },
+                { name: 'Deluxe Pizza', desc: 'Loaded with premium toppings', sizes: ['Small', 'Medium', 'Large'], toppings: ['Pepperoni', 'Sausage', 'Bacon', 'Ham', 'Mushroom', 'Onion', 'Green Pepper', 'Banana Pepper', 'Sweet Pepper', 'Extra Cheese'] }
             ],
             wings: [
-                { name: '10 Wings', price: 7.99 },
-                { name: '20 Wings', price: 13.99 },
-                { name: '50 Wings', price: 29.99 },
-                { name: 'French Fries', price: 3.99 }
+                { name: '10 Wings', desc: 'Choose your sauce', quantity: '10 pieces', sauces: ['Hot', 'Medium', 'Mild', 'BBQ', 'Honey Mustard'] },
+                { name: '20 Wings', desc: 'Choose your sauce', quantity: '20 pieces', sauces: ['Hot', 'Medium', 'Mild', 'BBQ', 'Honey Mustard'] },
+                { name: '50 Wings', desc: 'Choose your sauce', quantity: '50 pieces', sauces: ['Hot', 'Medium', 'Mild', 'BBQ', 'Honey Mustard'] }
             ],
             hoagies: [
-                { name: 'Italian Hoagie', price: 7.99 },
-                { name: 'Meatball Hoagie', price: 8.99 },
-                { name: 'Chicken Hoagie', price: 8.99 },
-                { name: 'Gyro Salad', price: 8.99 }
+                { name: 'Italian Hoagie', desc: 'On Mancini\'s premium bread' },
+                { name: 'Meatball Hoagie', desc: 'On Mancini\'s premium bread' },
+                { name: 'Chicken Hoagie', desc: 'On Mancini\'s premium bread' },
+                { name: 'Sausage Hoagie', desc: 'On Mancini\'s premium bread' }
             ],
             salads: [
-                { name: 'Gyro Salad', price: 8.99 },
-                { name: 'Chicken Salad', price: 8.99 }
+                { name: 'Gyro Salad', desc: 'Fresh greens with gyro meat' },
+                { name: 'Chicken Salad', desc: 'Fresh greens with grilled chicken' },
+                { name: 'Garden Salad', desc: 'Mixed fresh vegetables' }
+            ],
+            desserts: [
+                { name: 'Cheesecake', desc: 'Rich and creamy' },
+                { name: 'Cinnamon Rolls', desc: 'Warm and delicious' },
+                { name: 'Brownies', desc: 'Fudgy and fresh' },
+                { name: 'Cookies', desc: 'Assorted varieties' }
             ]
         };
 
-        function quickOrder(category) {
-            openOrderModal();
-            renderMenuItems(category);
+        let cart = [];
+        let currentCategory = 'pizza';
+
+        function switchCategory(category, btn) {
+            currentCategory = category;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderMenu();
         }
 
-        function openOrderModal() {
-            document.getElementById('orderModal').style.display = 'block';
-            renderCart();
-        }
-
-        function closeOrderModal() {
-            document.getElementById('orderModal').style.display = 'none';
-        }
-
-        function renderMenuItems(category) {
-            const items = menuItems[category] || [];
-            let html = '';
-            items.forEach(item => {
-                html += `
-                    <div class="order-item-row" onclick="addToCart('${item.name}', ${item.price})">
-                        <div class="order-item-info">
-                            <h4>${item.name}</h4>
-                            <p>$${item.price.toFixed(2)}</p>
+        function renderMenu() {
+            const grid = document.getElementById('menuGrid');
+            const items = menuData[currentCategory] || [];
+            
+            grid.innerHTML = items.map((item, idx) => {
+                const isPizza = currentCategory === 'pizza';
+                const isWings = currentCategory === 'wings';
+                
+                return `
+                    <div class="menu-item" id="item-${currentCategory}-${idx}">
+                        <div class="item-header">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-desc">${item.desc}</div>
                         </div>
-                        <div style="color: #dc2626; font-weight: 700;">+ Add</div>
+                        <div class="item-body">
+                            ${isPizza ? `
+                                <div class="size-selector">
+                                    <label class="size-label">Select Size</label>
+                                    <div class="size-options">
+                                        ${item.sizes.map(size => `
+                                            <button class="size-btn" onclick="selectSize(this, '${size}')">${size}</button>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                <div class="toppings-section">
+                                    <label class="size-label">Add Toppings (Optional)</label>
+                                    <div class="toppings-grid">
+                                        ${item.toppings.map(topping => `
+                                            <div class="topping-item">
+                                                <input type="checkbox" id="topping-${topping}" value="${topping}">
+                                                <label for="topping-${topping}">${topping}</label>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : isWings ? `
+                                <div class="sauce-selector">
+                                    <label class="size-label">Select Sauce</label>
+                                    <div class="sauce-options">
+                                        ${item.sauces.map(sauce => `
+                                            <button class="sauce-btn" onclick="selectSauce(this, '${sauce}')">${sauce}</button>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                            
+                            <div class="item-footer">
+                                <div class="qty-control">
+                                    <button class="qty-btn" onclick="updateQty(this, -1)">−</button>
+                                    <div class="qty-display" data-qty="1">1</div>
+                                    <button class="qty-btn" onclick="updateQty(this, 1)">+</button>
+                                </div>
+                                <button class="add-btn" onclick="addToCart('${currentCategory}', ${idx}, '${item.name}')">Add</button>
+                            </div>
+                        </div>
                     </div>
                 `;
+            }).join('');
+
+            // Add click handlers to expand items
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if (!e.target.closest('.item-footer') && !e.target.closest('.size-btn') && !e.target.closest('.sauce-btn') && !e.target.closest('.topping-item')) {
+                        this.classList.toggle('expanded');
+                    }
+                });
             });
-            document.getElementById('orderItems').innerHTML = html;
         }
 
-        function addToCart(name, price) {
-            if (!cart[name]) {
-                cart[name] = { price, qty: 0 };
+        function selectSize(btn, size) {
+            btn.parentElement.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function selectSauce(btn, sauce) {
+            btn.parentElement.querySelectorAll('.sauce-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function updateQty(btn, delta) {
+            const display = btn.parentElement.querySelector('.qty-display');
+            let qty = parseInt(display.dataset.qty) + delta;
+            qty = Math.max(1, qty);
+            display.dataset.qty = qty;
+            display.textContent = qty;
+        }
+
+        function addToCart(category, itemIdx, itemName) {
+            const item = menuData[category][itemIdx];
+            const itemEl = document.getElementById(`item-${category}-${itemIdx}`);
+            const qtyDisplay = itemEl.querySelector('.qty-display');
+            const qty = parseInt(qtyDisplay.dataset.qty);
+
+            let cartItem = {
+                id: `${category}-${itemIdx}-${Date.now()}`,
+                name: itemName,
+                category: category,
+                qty: qty,
+                options: []
+            };
+
+            if (category === 'pizza') {
+                const selectedSize = itemEl.querySelector('.size-btn.selected');
+                const selectedToppings = Array.from(itemEl.querySelectorAll('.topping-item input:checked')).map(el => el.value);
+                if (selectedSize) cartItem.options.push(`Size: ${selectedSize.textContent}`);
+                if (selectedToppings.length > 0) cartItem.options.push(`Toppings: ${selectedToppings.join(', ')}`);
+            } else if (category === 'wings') {
+                const selectedSauce = itemEl.querySelector('.sauce-btn.selected');
+                if (selectedSauce) cartItem.options.push(`Sauce: ${selectedSauce.textContent}`);
             }
-            cart[name].qty++;
+
+            cart.push(cartItem);
+            updateCartCount();
+            
+            // Reset form
+            qtyDisplay.dataset.qty = 1;
+            qtyDisplay.textContent = 1;
+            itemEl.querySelectorAll('input:checked').forEach(el => el.checked = false);
+            itemEl.querySelectorAll('.size-btn, .sauce-btn').forEach(b => b.classList.remove('selected'));
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        function openCart() {
+            document.getElementById('cartModal').classList.add('active');
             renderCart();
         }
 
-        function removeFromCart(name) {
-            delete cart[name];
-            renderCart();
-        }
-
-        function updateQty(name, qty) {
-            if (qty <= 0) {
-                removeFromCart(name);
-            } else {
-                cart[name].qty = qty;
-                renderCart();
-            }
+        function closeCart() {
+            document.getElementById('cartModal').classList.remove('active');
         }
 
         function renderCart() {
-            let html = '';
-            let total = 0;
+            const cartBody = document.getElementById('cartBody');
+            const cartFooter = document.getElementById('cartFooter');
 
-            if (Object.keys(cart).length === 0) {
-                html = '<p style="text-align: center; color: #6b7280;">Click items to add to cart</p>';
+            if (cart.length === 0) {
+                cartBody.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+                cartFooter.style.display = 'none';
             } else {
-                Object.entries(cart).forEach(([name, item]) => {
-                    const itemTotal = item.price * item.qty;
-                    total += itemTotal;
-                    html += `
-                        <div class="order-item-row">
-                            <div class="order-item-info">
-                                <h4>${name}</h4>
-                                <p>$${item.price.toFixed(2)} each</p>
-                            </div>
-                            <div class="order-item-controls">
-                                <button class="qty-btn" onclick="updateQty('${name}', ${item.qty - 1})">−</button>
-                                <div class="qty-display">${item.qty}</div>
-                                <button class="qty-btn" onclick="updateQty('${name}', ${item.qty + 1})">+</button>
-                            </div>
-                            <div class="order-price">$${itemTotal.toFixed(2)}</div>
+                cartBody.innerHTML = cart.map((item, idx) => `
+                    <div class="cart-item">
+                        <div class="cart-item-name">${item.name} × ${item.qty}</div>
+                        ${item.options.length > 0 ? `<div class="cart-item-details">${item.options.join('<br>')}</div>` : ''}
+                        <div class="cart-item-footer">
+                            <span class="cart-item-price">$${(Math.random() * 15 + 5).toFixed(2)}</span>
+                            <button class="remove-btn" onclick="removeFromCart(${idx})">Remove</button>
                         </div>
-                    `;
-                });
-            }
-
-            document.getElementById('orderItems').innerHTML = html;
-            document.getElementById('totalPrice').textContent = '$' + total.toFixed(2);
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('orderModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
+                    </div>
+                `).join('');
+                cartFooter.style.display = 'block';
             }
         }
+
+        function removeFromCart(idx) {
+            cart.splice(idx, 1);
+            updateCartCount();
+            renderCart();
+        }
+
+        // Initialize
+        renderMenu();
     </script>
 
 </body>
