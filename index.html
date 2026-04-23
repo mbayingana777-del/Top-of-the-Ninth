@@ -1346,52 +1346,102 @@
       sweets: "🍰 Sweets"
     };
 
-    const menuData = {
-      pizza: [
-        { type: "pizza_build", name: "Build Your Pizza", desc: "Start with cheese, add toppings.", sizes: [{ name: "Small", price: 8.99, toppingPrice: 0.75 }, { name: "Large", price: 12.99, toppingPrice: 0.99 }], toppings: ["Pepperoni", "Sausage", "Bacon", "Ham", "Mushroom", "Onion", "Green Pepper", "Banana Pepper", "Sweet Pepper", "Extra Cheese"], image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/pizza-cheese-A66ycQfLUeXuamhWQPCn97.webp" },
-        { type: "pizza_fixed_sizes", name: "Deluxe Pizza", desc: "Loaded with premium toppings.", sizes: [{ name: "Small", price: 10.99 }, { name: "Large", price: 14.99 }], image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/pizza-deluxe-8e7hZd5brfZjm5SBiLieZ3.webp" }
+const menuData = {
+  pizza: [
+    {
+      type: "pizza_build",
+      name: "Build Your Pizza",
+      desc: "Start with cheese, add toppings.",
+      sizes: [
+        { name: "Small", price: 8.99, toppingPrice: 0.75 },
+        { name: "Large", price: 12.99, toppingPrice: 0.99 }
       ],
-
-      wings: [
-        { type: "wings", name: "Chicken Wings", desc: "Crispy, juicy, cooked to perfection.", sizes: [{ name: "10 Pc", price: 7.99 }, { name: "20 Pc", price: 14.99 }, { name: "50 Pc", price: 34.99 }], sauces: ["Hot", "Medium", "Mild", "BBQ", "Honey Mustard"], dressings: [{ name: "Ranch", price: 0.50 }, { name: "Bleu Cheese", price: 0.75 }], image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/wings-CqdSiqioXjJUMoRht7pBDt.webp" }
+      toppings: ["Pepperoni","Sausage","Bacon","Ham","Mushroom","Onion","Green Pepper","Banana Pepper","Sweet Pepper","Extra Cheese"],
+      image: "images/pizza-custom-forge.jpg"
+    },
+    {
+      type: "pizza_fixed_sizes",
+      name: "Deluxe Pizza",
+      desc: "Loaded with premium toppings.",
+      sizes: [
+        { name: "Small", price: 10.99 },
+        { name: "Large", price: 14.99 }
       ],
-
-      hoagies: [
-        { type: "flat", name: "Italian Hoagie", desc: "Served with fries, curly or regular.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" },
-        { type: "flat", name: "Meatball Hoagie", desc: "Served with fries, curly or regular.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" },
-        { type: "flat", name: "Chicken Hoagie", desc: "Served with fries, curly or regular.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" }
+      image: "images/pizza-deluxe-overload.jpg"
+    },
+    {
+      type: "pizza_fixed_sizes",
+      name: "Cheese Lover",
+      desc: "Extra cheese, classic style.",
+      sizes: [
+        { name: "Small", price: 9.99 },
+        { name: "Large", price: 13.99 }
       ],
-
-      artisan_sandwiches: [
-        { type: "flat", name: "Steak Sandwich", desc: "Served with fries, curly or regular.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" },
-        { type: "flat", name: "Buffalo Chicken", desc: "Served with fries, curly or regular.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" }
+      image: "images/pizza-cheese-pull.jpg"
+    },
+    {
+      type: "pizza_fixed_sizes",
+      name: "Supreme",
+      desc: "Classic supreme toppings.",
+      sizes: [
+        { name: "Small", price: 10.99 },
+        { name: "Large", price: 14.99 }
       ],
+      image: "images/pizza-supreme-classic.jpg"
+    }
+  ],
 
-      wraps: [
-        { type: "flat", name: "Chicken Wrap", desc: "Fresh wrap with grilled chicken.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/wrap-Y8kTSoMPTDoKnWG3mMwEz7.webp" },
-        { type: "flat", name: "Veggie Wrap", desc: "Fresh wrap with seasonal vegetables.", price: 7.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/wrap-Y8kTSoMPTDoKnWG3mMwEz7.webp" }
+  wings: [
+    {
+      type: "wings",
+      name: "Chicken Wings",
+      desc: "Crispy, juicy, cooked to perfection.",
+      sizes: [
+        { name: "10 Pc", price: 7.99 },
+        { name: "20 Pc", price: 14.99 }
       ],
-
-      calzones: [
-        { type: "flat", name: "Cheese & Sauce", desc: "Any topping 1.09 extra.", price: 6.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" },
-        { type: "flat", name: "Meatball & Cheese", desc: "Calzone.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" },
-        { type: "flat", name: "Steak", desc: "Calzone.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" },
-        { type: "flat", name: "Cheese Lovers", desc: "Calzone.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" },
-        { type: "flat", name: "Supreme", desc: "Calzone.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" },
-        { type: "flat", name: "Chicken", desc: "With French fries / grilled BBQ / buffalo.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" }
+      sauces: ["Hot","Medium","Mild","BBQ","Honey Mustard"],
+      dressings: [
+        { name: "Ranch", price: 0.5 },
+        { name: "Bleu Cheese", price: 0.75 }
       ],
+      image: "images/wings-sauce-drip.jpg"
+    }
+  ],
 
-      pepperoni_rolls: [
-        { type: "flat", name: "Pepperoni Roll", desc: "Single roll.", price: 3.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/pepperoni-roll-TGiU8x66KpcaLZof9Ajv6x.webp" },
-        { type: "flat", name: "Pepperoni Rolls (2)", desc: "Two-roll deal.", price: 6.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/pepperoni-roll-TGiU8x66KpcaLZof9Ajv6x.webp" }
-      ],
+  hoagies: [
+    { type: "flat", name: "Italian Hoagie", price: 8.99, image: "images/hoagie-italian-stack.jpg" },
+    { type: "flat", name: "Meatball Hoagie", price: 8.99, image: "images/hoagie-meatball-melt.jpg" },
+    { type: "flat", name: "Chicken Hoagie", price: 8.99, image: "images/hoagie-chicken-grill.jpg" }
+  ],
 
-      sweets: [
-        { type: "flat", name: "Cinnamon Rolls", desc: "Sweet finish.", price: 3.49, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/dessert-VYsY7wd39gk64gKpoWzzTD.webp" },
-        { type: "flat", name: "Cheesecake", desc: "Rich and creamy.", price: 4.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/dessert-VYsY7wd39gk64gKpoWzzTD.webp" },
-        { type: "flat", name: "Brownies", desc: "Fudgy and fresh.", price: 2.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/dessert-VYsY7wd39gk64gKpoWzzTD.webp" }
-      ]
-    };
+  artisan_sandwiches: [
+    { type: "flat", name: "Steak Sandwich", price: 8.99, image: "images/sandwich-steak-loaded.jpg" },
+    { type: "flat", name: "Buffalo Chicken", price: 8.99, image: "images/sandwich-buffalo-kick.jpg" }
+  ],
+
+  wraps: [
+    { type: "flat", name: "Chicken Wrap", price: 8.99, image: "images/wrap-chicken-cut.jpg" },
+    { type: "flat", name: "Veggie Wrap", price: 7.99, image: "images/wrap-veggie-fresh.jpg" }
+  ],
+
+  calzones: [
+    { type: "flat", name: "Cheese & Sauce", price: 6.99, image: "images/calzone-cheese-core.jpg" },
+    { type: "flat", name: "Meatball & Cheese", price: 8.99, image: "images/calzone-meatball-fill.jpg" },
+    { type: "flat", name: "Steak", price: 8.99, image: "images/calzone-steak-stuffed.jpg" }
+  ],
+
+  pepperoni_rolls: [
+    { type: "flat", name: "Pepperoni Roll (Small)", price: 3.99, image: "images/roll-pepperoni-golden.jpg" },
+    { type: "flat", name: "Pepperoni Roll (Large)", price: 6.99, image: "images/roll-pepperoni-slice.jpg" }
+  ],
+
+  sweets: [
+    { type: "flat", name: "Cinnamon Rolls", price: 3.49, image: "images/dessert-cinnamon-glaze.jpg" },
+    { type: "flat", name: "Cheesecake", price: 4.99, image: "images/dessert-cheesecake-smooth.jpg" },
+    { type: "flat", name: "Brownies", price: 2.99, image: "images/dessert-brownie-fudge.jpg" }
+  ]
+};
 
     let currentCategory = "pizza";
     let cart = [];
