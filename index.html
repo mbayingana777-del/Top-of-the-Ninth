@@ -175,7 +175,7 @@
 
     /* Hero */
     .hero {
-      background: url("images/hero.jpg") center/cover no-repeat;
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-dark) 100%);
       position: relative;
       padding: 92px 20px 70px;
       text-align: center;
@@ -319,7 +319,7 @@
 
     /* Menu section */
     .menu-section {
-      background: url("images/pizza.jpg") center/cover no-repeat;
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-dark) 100%);
       position: relative;
       padding: 80px 20px;
     }
@@ -1170,7 +1170,7 @@
       </div>
       <div class="hero-proof">
         <span class="proof-chip">Cheese pull classics</span>
-        <span class="proof-chip">Hoagies on Mancini’s bread</span>
+        <span class="proof-chip">Hoagies on Mancini's bread</span>
         <span class="proof-chip">Open Tue–Sat</span>
       </div>
     </div>
@@ -1179,10 +1179,10 @@
   <section class="gallery-strip">
     <div class="container">
       <div class="gallery-grid">
-        <div class="gallery-card"><img src="images/hero.jpg" alt="Cheese pull pizza" /></div>
-        <div class="gallery-card"><img src="images/pizza.jpg" alt="Whole pizza closeup" /></div>
-        <div class="gallery-card"><img src="images/slice-hand.jpg" alt="Pizza slice in hand" /></div>
-        <div class="gallery-card"><img src="images/slice.jpg" alt="Single pizza slice" /></div>
+        <div class="gallery-card"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/pizza-cheese-A66ycQfLUeXuamhWQPCn97.webp" alt="Cheese pizza" /></div>
+        <div class="gallery-card"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/pizza-deluxe-8e7hZd5brfZjm5SBiLieZ3.webp" alt="Deluxe pizza" /></div>
+        <div class="gallery-card"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/wings-CqdSiqioXjJUMoRht7pBDt.webp" alt="Crispy wings" /></div>
+        <div class="gallery-card"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" alt="Italian hoagie" /></div>
       </div>
     </div>
   </section>
@@ -1259,7 +1259,7 @@
         </div>
 
         <div class="location-map">
-          <img src="images/slice-hand.jpg" alt="Top of the Ninth pizza" />
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/wrap-Y8kTSoMPTDoKnWG3mMwEz7.webp" alt="Top of the Ninth pizza" />
           <div class="map-overlay">
             <div class="map-card">
               <strong>Top of the Ninth</strong>
@@ -1321,11 +1321,11 @@
         <button class="close-btn" onclick="closeCart()">✕</button>
       </div>
       <div class="modal-body" id="cartBody">
-        <div class="cart-empty">Your cart is empty.</div>
+        <div class="cart-empty">Your cart is empty</div>
       </div>
       <div class="modal-footer" id="cartFooter" style="display:none;">
         <div class="cart-total-row">
-          <span>Total</span>
+          <span>Total:</span>
           <span id="cartTotal">$0.00</span>
         </div>
         <a href="tel:+17248469999" class="checkout-btn">Call to Place Order</a>
@@ -1334,189 +1334,62 @@
   </div>
 
   <script>
-    const businessPhone = "(724) 846-9999";
-
-    const categoryOrder = [
-      "pizza",
-      "wings",
-      "hoagies",
-      "artisan_sandwiches",
-      "wraps",
-      "calzones",
-      "pepperoni_rolls",
-      "sweets"
-    ];
-
+    const categoryOrder = ["pizza", "wings", "hoagies", "artisan_sandwiches", "wraps", "calzones", "pepperoni_rolls", "sweets"];
     const categoryLabels = {
       pizza: "🍕 Pizza",
       wings: "🍗 Wings",
       hoagies: "🥪 Hoagies",
-      artisan_sandwiches: "🥖 Artisan Sandwiches",
+      artisan_sandwiches: "🥖 Artisan",
       wraps: "🌯 Wraps",
       calzones: "🥟 Calzones",
-      pepperoni_rolls: "🧄 Pepperoni Rolls",
-      sweets: "🍬 Sweets"
+      pepperoni_rolls: "🔴 Rolls",
+      sweets: "🍰 Sweets"
     };
 
     const menuData = {
       pizza: [
-        {
-          type: "pizza_build",
-          name: "Cheese Pizza",
-          desc: "Regular thin crust. Add toppings by size.",
-          image: "images/pizza.jpg",
-          sizes: [
-            { name: "Small (4 cut)", price: 4.79, toppingPrice: 1.49 },
-            { name: "Medium (8 cut)", price: 8.49, toppingPrice: 1.79 },
-            { name: "Large (12 cut)", price: 10.99, toppingPrice: 1.99 }
-          ],
-          toppings: [
-            "Pepperoni",
-            "Sausage",
-            "Mushrooms",
-            "Onions",
-            "Hot Peppers",
-            "Meatball",
-            "Ham",
-            "Bacon",
-            "Pineapple",
-            "Green Peppers",
-            "Black Olives",
-            "Anchovies",
-            "Extra Cheese",
-            "Tomato"
-          ],
-          badge: "Build Your Own"
-        },
-        {
-          type: "pizza_fixed_sizes",
-          name: "Deluxe Pizza",
-          desc: "4 toppings of your choice. Pizza for only. It’s our daily special.",
-          image: "images/hero.jpg",
-          sizes: [
-            { name: "Small", price: 6.99 },
-            { name: "Medium", price: 11.99 },
-            { name: "Large", price: 13.99 }
-          ],
-          badge: "Daily Special"
-        },
-        {
-          type: "pizza_fixed_sizes",
-          name: "The 9th’s White Pizza",
-          desc: "Imported olive oil, a blend of 4 cheeses, topped with onions, tomatoes & green peppers.",
-          image: "images/slice.jpg",
-          sizes: [
-            { name: "Small", price: 6.99 },
-            { name: "Medium", price: 11.99 },
-            { name: "Large", price: 13.99 }
-          ],
-          badge: "House Favorite"
-        },
-        {
-          type: "flat",
-          name: "BBQ Chicken Pizza (8 cut)",
-          desc: "Specialty pizza.",
-          price: 12.99,
-          image: "images/pizza.jpg"
-        },
-        {
-          type: "flat",
-          name: "Buffalo Chicken Pizza (8 cut)",
-          desc: "Specialty pizza.",
-          price: 12.99,
-          image: "images/pizza.jpg"
-        },
-        {
-          type: "flat",
-          name: "Specialty House Pizza (8 cut)",
-          desc: "Specialty pizza.",
-          price: 12.99,
-          image: "images/pizza.jpg"
-        }
+        { type: "pizza_build", name: "Build Your Pizza", desc: "Start with cheese, add toppings.", sizes: [{ name: "Small", price: 8.99, toppingPrice: 0.75 }, { name: "Large", price: 12.99, toppingPrice: 0.99 }], toppings: ["Pepperoni", "Sausage", "Bacon", "Ham", "Mushroom", "Onion", "Green Pepper", "Banana Pepper", "Sweet Pepper", "Extra Cheese"], image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/pizza-cheese-A66ycQfLUeXuamhWQPCn97.webp" },
+        { type: "pizza_fixed_sizes", name: "Deluxe Pizza", desc: "Loaded with premium toppings.", sizes: [{ name: "Small", price: 10.99 }, { name: "Large", price: 14.99 }], image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/pizza-deluxe-8e7hZd5brfZjm5SBiLieZ3.webp" }
       ],
 
       wings: [
-        {
-          type: "wings",
-          name: "Wings",
-          desc: "Choose quantity and sauce. Dressing optional.",
-          image: "images/hero.jpg",
-          sizes: [
-            { name: "Half Dozen", price: 4.99 },
-            { name: "Dozen", price: 8.99 },
-            { name: "18 Wings", price: 12.99 },
-            { name: "50 Wings", price: 32.99 }
-          ],
-          sauces: [
-            "XXX Hot",
-            "Hot",
-            "Mild",
-            "Hot Garlic",
-            "Hot BBQ",
-            "Hot Garlic Parmesan",
-            "Cajun",
-            "Butter Garlic",
-            "BBQ",
-            "Southwest Seasoned (Dry)",
-            "Jamaican (Dry)",
-            "Old Bay (Dry)",
-            "Cajun (Dry)"
-          ],
-          dressings: [
-            { name: "Bleu Cheese", price: 0.69 },
-            { name: "Ranch", price: 0.69 },
-            { name: "Honey Mustard", price: 0.69 }
-          ],
-          badge: "Sauce Choice"
-        }
+        { type: "wings", name: "Chicken Wings", desc: "Crispy, juicy, cooked to perfection.", sizes: [{ name: "10 Pc", price: 7.99 }, { name: "20 Pc", price: 14.99 }, { name: "50 Pc", price: 34.99 }], sauces: ["Hot", "Medium", "Mild", "BBQ", "Honey Mustard"], dressings: [{ name: "Ranch", price: 0.50 }, { name: "Bleu Cheese", price: 0.75 }], image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/wings-CqdSiqioXjJUMoRht7pBDt.webp" }
       ],
 
       hoagies: [
-        { type: "flat", name: "Steak", desc: "Made with Mancini’s bread.", price: 6.49, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Meatball", desc: "Made with Mancini’s bread.", price: 6.49, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Pizza Sub", desc: "Made with Mancini’s bread.", price: 6.49, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Italian", desc: "Made with Mancini’s bread.", price: 6.49, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Sausage", desc: "Made with Mancini’s bread.", price: 6.49, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Gyro", desc: "Made with Mancini’s bread.", price: 6.49, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Ham & Cheese", desc: "Made with Mancini’s bread.", price: 6.49, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Chicken Parmigiana", desc: "Made with Mancini’s bread.", price: 6.49, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Grilled Chicken", desc: "Made with Mancini’s bread.", price: 6.49, image: "images/slice-hand.jpg" }
+        { type: "flat", name: "Italian Hoagie", desc: "Served with fries, curly or regular.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" },
+        { type: "flat", name: "Meatball Hoagie", desc: "Served with fries, curly or regular.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" },
+        { type: "flat", name: "Chicken Hoagie", desc: "Served with fries, curly or regular.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" }
       ],
 
       artisan_sandwiches: [
-        { type: "flat", name: "Steak", desc: "Slow baked seasoned bread made in house every day.", price: 6.99, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Italian", desc: "Slow baked seasoned bread made in house every day.", price: 6.99, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Ham & Cheese", desc: "Slow baked seasoned bread made in house every day.", price: 6.99, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "Grilled Chicken", desc: "Slow baked seasoned bread made in house every day.", price: 6.99, image: "images/slice-hand.jpg" },
-        { type: "flat", name: "BBQ Chicken", desc: "Slow baked seasoned bread made in house every day.", price: 6.99, image: "images/slice-hand.jpg" }
+        { type: "flat", name: "Steak Sandwich", desc: "Served with fries, curly or regular.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" },
+        { type: "flat", name: "Buffalo Chicken", desc: "Served with fries, curly or regular.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/hoagie-7HHZxRrjNJoELuExSDfmUJ.webp" }
       ],
 
       wraps: [
-        { type: "flat", name: "Veggie Wrap", desc: "Served with fries, curly or regular.", price: 7.99, image: "images/slice.jpg" },
-        { type: "flat", name: "Ham & Cheese", desc: "Served with fries, curly or regular.", price: 8.99, image: "images/slice.jpg" },
-        { type: "flat", name: "BLT", desc: "Served with fries, curly or regular.", price: 8.99, image: "images/slice.jpg" },
-        { type: "flat", name: "Grilled Chicken", desc: "Served with fries, curly or regular.", price: 8.99, image: "images/slice.jpg" },
-        { type: "flat", name: "Chicken Tender", desc: "Served with fries, curly or regular.", price: 8.99, image: "images/slice.jpg" },
-        { type: "flat", name: "Steak", desc: "Served with fries, curly or regular.", price: 8.99, image: "images/slice.jpg" },
-        { type: "flat", name: "Buffalo Chicken", desc: "Served with fries, curly or regular.", price: 8.99, image: "images/slice.jpg" }
+        { type: "flat", name: "Chicken Wrap", desc: "Fresh wrap with grilled chicken.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/wrap-Y8kTSoMPTDoKnWG3mMwEz7.webp" },
+        { type: "flat", name: "Veggie Wrap", desc: "Fresh wrap with seasonal vegetables.", price: 7.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/wrap-Y8kTSoMPTDoKnWG3mMwEz7.webp" }
       ],
 
       calzones: [
-        { type: "flat", name: "Cheese & Sauce", desc: "Any topping 1.09 extra.", price: 6.99, image: "images/pizza.jpg" },
-        { type: "flat", name: "Meatball & Cheese", desc: "Calzone.", price: 8.99, image: "images/pizza.jpg" },
-        { type: "flat", name: "Steak", desc: "Calzone.", price: 8.99, image: "images/pizza.jpg" },
-        { type: "flat", name: "Cheese Lovers", desc: "Calzone.", price: 8.99, image: "images/pizza.jpg" },
-        { type: "flat", name: "Supreme", desc: "Calzone.", price: 8.99, image: "images/pizza.jpg" },
-        { type: "flat", name: "Chicken", desc: "With French fries / grilled BBQ / buffalo.", price: 8.99, image: "images/pizza.jpg" }
+        { type: "flat", name: "Cheese & Sauce", desc: "Any topping 1.09 extra.", price: 6.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" },
+        { type: "flat", name: "Meatball & Cheese", desc: "Calzone.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" },
+        { type: "flat", name: "Steak", desc: "Calzone.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" },
+        { type: "flat", name: "Cheese Lovers", desc: "Calzone.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" },
+        { type: "flat", name: "Supreme", desc: "Calzone.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" },
+        { type: "flat", name: "Chicken", desc: "With French fries / grilled BBQ / buffalo.", price: 8.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/calzone-2BGV96BjdvdLytv8p9tXDa.webp" }
       ],
 
       pepperoni_rolls: [
-        { type: "flat", name: "Pepperoni Roll", desc: "Single roll.", price: 3.99, image: "images/slice.jpg" },
-        { type: "flat", name: "Pepperoni Rolls (2)", desc: "Two-roll deal.", price: 6.99, image: "images/slice.jpg" }
+        { type: "flat", name: "Pepperoni Roll", desc: "Single roll.", price: 3.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/pepperoni-roll-TGiU8x66KpcaLZof9Ajv6x.webp" },
+        { type: "flat", name: "Pepperoni Rolls (2)", desc: "Two-roll deal.", price: 6.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/pepperoni-roll-TGiU8x66KpcaLZof9Ajv6x.webp" }
       ],
 
       sweets: [
-        { type: "flat", name: "Cinnamon Rolls", desc: "Sweet finish.", price: 3.49, image: "images/slice.jpg" }
+        { type: "flat", name: "Cinnamon Rolls", desc: "Sweet finish.", price: 3.49, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/dessert-VYsY7wd39gk64gKpoWzzTD.webp" },
+        { type: "flat", name: "Cheesecake", desc: "Rich and creamy.", price: 4.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/dessert-VYsY7wd39gk64gKpoWzzTD.webp" },
+        { type: "flat", name: "Brownies", desc: "Fudgy and fresh.", price: 2.99, image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663573905287/LExS3eSkLRW4Vf6TLdTsHc/dessert-VYsY7wd39gk64gKpoWzzTD.webp" }
       ]
     };
 
@@ -1765,31 +1638,19 @@
       const qtyDisplay = itemEl.querySelector(".qty-display");
       const qty = parseInt(qtyDisplay.dataset.qty, 10);
 
-      const config = calculateItemConfig(itemEl, item);
-      const lineTotal = config.unitPrice * qty;
+      const { options, unitPrice } = calculateItemConfig(itemEl, item);
 
       cart.push({
         id: `${category}-${itemIdx}-${Date.now()}`,
         name: item.name,
         qty,
-        unitPrice: config.unitPrice,
-        lineTotal,
-        options: config.options
+        options,
+        unitPrice
       });
-
-      qtyDisplay.dataset.qty = 1;
-      qtyDisplay.textContent = 1;
-
-      itemEl.querySelectorAll('input[type="checkbox"]:checked').forEach(el => {
-        el.checked = false;
-      });
-
-      const dressingSelect = itemEl.querySelector(".dressing-select");
-      if (dressingSelect) dressingSelect.selectedIndex = 0;
 
       updateCartCount();
-      renderCart();
-      openCart();
+      qtyDisplay.dataset.qty = 1;
+      qtyDisplay.textContent = 1;
     }
 
     function updateCartCount() {
@@ -1806,42 +1667,39 @@
       document.getElementById("cartModal").classList.remove("active");
     }
 
+    function renderCart() {
+      const cartBody = document.getElementById("cartBody");
+      const cartFooter = document.getElementById("cartFooter");
+
+      if (cart.length === 0) {
+        cartBody.innerHTML = '<div class="cart-empty">Your cart is empty</div>';
+        cartFooter.style.display = "none";
+      } else {
+        const total = cart.reduce((sum, item) => sum + (item.unitPrice * item.qty), 0);
+
+        cartBody.innerHTML = cart.map((item, idx) => `
+          <div class="cart-item">
+            <div class="cart-item-top">
+              <div class="cart-item-name">${item.name}</div>
+              <div class="cart-item-line">${money(item.unitPrice * item.qty)}</div>
+            </div>
+            ${item.options.length > 0 ? `<div class="cart-item-details">${item.options.join("<br>")}</div>` : ""}
+            <div class="cart-item-footer">
+              <span>Qty: ${item.qty}</span>
+              <button class="remove-btn" onclick="removeFromCart(${idx})">Remove</button>
+            </div>
+          </div>
+        `).join("");
+
+        document.getElementById("cartTotal").textContent = money(total);
+        cartFooter.style.display = "block";
+      }
+    }
+
     function removeFromCart(idx) {
       cart.splice(idx, 1);
       updateCartCount();
       renderCart();
-    }
-
-    function renderCart() {
-      const cartBody = document.getElementById("cartBody");
-      const cartFooter = document.getElementById("cartFooter");
-      const cartTotal = document.getElementById("cartTotal");
-
-      if (!cart.length) {
-        cartBody.innerHTML = '<div class="cart-empty">Your cart is empty.</div>';
-        cartFooter.style.display = "none";
-        cartTotal.textContent = "$0.00";
-        return;
-      }
-
-      const total = cart.reduce((sum, item) => sum + item.lineTotal, 0);
-
-      cartBody.innerHTML = cart.map((item, idx) => `
-        <div class="cart-item">
-          <div class="cart-item-top">
-            <div class="cart-item-name">${item.name} × ${item.qty}</div>
-            <div class="cart-item-line">${money(item.lineTotal)}</div>
-          </div>
-          ${item.options.length ? `<div class="cart-item-details">${item.options.join("<br>")}</div>` : ""}
-          <div class="cart-item-footer">
-            <div class="muted">${money(item.unitPrice)} each</div>
-            <button class="remove-btn" onclick="removeFromCart(${idx})">Remove</button>
-          </div>
-        </div>
-      `).join("");
-
-      cartTotal.textContent = money(total);
-      cartFooter.style.display = "block";
     }
 
     window.addEventListener("scroll", () => {
@@ -1851,11 +1709,6 @@
       } else {
         mobileCTA.classList.remove("active");
       }
-    });
-
-    window.addEventListener("click", (e) => {
-      const modal = document.getElementById("cartModal");
-      if (e.target === modal) closeCart();
     });
 
     buildTabs();
